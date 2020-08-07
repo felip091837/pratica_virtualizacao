@@ -1,6 +1,8 @@
 #!/bin/bash
 
 #felipesi
+#script para criar uma rede virtual entre duas VMs em um mesmo host, permitindo a comunicação entre elas.
+#testado utilizando a imagem ubuntu server 18.04 do amazon ec2
 
 sudo apt update
 sudo apt install sshpass qemu -y
@@ -9,7 +11,7 @@ wget http://download.cirros-cloud.net/0.5.1/cirros-0.5.1-x86_64-disk.img -O cirr
 cp cirros.img vm1.img
 cp cirros.img vm2.img
 
-#cria a bridge como br0
+#cria uma bridge uma br0
 sudo ip link add br0 type bridge
 
 #cria duas interfaces TAP (tap1 e tap2)
@@ -26,7 +28,7 @@ qemu-system-x86_64 -device e1000,netdev=user0 -netdev user,id=user0,hostfwd=tcp:
 
 #aguarda ssh das VMs ser liberado
 while true;do
-    sshpass -p 'gocubsgo' ssh -oStrictHostKeyChecking=no cirros@localhost -p 2221 "echo" && break
+    sshpass -p 'gocubsgo' ssh -oStrictHostKeyChecking=no cirros@localhost -p 2222 "echo" && break
     sleep 1
 done
 
