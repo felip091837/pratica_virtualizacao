@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #felipesi
-#script para criar uma rede virtual entre duas VMs em um mesmo host, permitindo a comunicação entre elas.
-#testado utilizando a imagem ubuntu server 18.04 do amazon ec2
+#script para automatizar a criação e configuração de uma rede virtual entre duas VMs em um único host, permitindo uma comunicação isolada entre as VMs.
+#testado utilizando a imagem 'ubuntu server 18.04 LTS' do amazon ec2
 
 sudo apt update
 sudo apt install sshpass qemu -y
